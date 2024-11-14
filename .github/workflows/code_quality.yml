@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Super Linter
-        uses: super-linter/super-linter@v7
+        uses: super-linter/super-linter@v4
         env:
           DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
           VALIDATE_BASH: true
           
   test:
