@@ -1,28 +1,57 @@
-name: Code_linter Bash Scripts  # Workflow name
+name: Code Quality flows  # Workflow name
 
 on:
   push:
     branches: main
 
 jobs:
-  lint:
+  check:
     runs-on: ubuntu-latest
 
-steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    steps:
 
-      - name: Run Super Linter
-        uses: super-linter/super-linter@v7
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_BASH: true
+          - name: Run Super Linter
+            uses: super-linter/super-linter@v7
+            env:
+              DEFAULT_BRANCH: main
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              VALIDATE_BASH: true
+          
+  test:
+    runs-on: ubuntu-latest
+    needs: check
+    steps:
+        - name: Print Github Token and Username
+          env:
+            GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+            USERNAME: ${{ secrets.USERNAME }}
+          run: |
+            echo "Github Token: $GITHUB_TOKEN"
+            echo "Username: $USERNAME"
 
-      - name: Print Github Token and Username
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-          USERNAME: ${{ secrets.USERNAME }}
-        run: |
-          echo "Github Token: $GITHUB_TOKEN"
-          echo "Username: $USERNAME"
+    build:
+      runs-on: ubuntu-latest
+      needs: test
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+          
+        - name: List all files in the directory
+          uses: |
+            echo "List all files in the directory"
+            tree -a
+            
+        - name: enter into week3 folder 
+          run: cd TDI_week7/TDI_week3
+
+        - name: Make all scripts executable
+          run: chmod +x arguments.sh input_user_login.sh pwd_user_validate.sh file_creation.sh math_operation.sh
+
+        - name: Run script arguments.sh
+          run: ./arguments.sh
+
+        - name: Run script input_user_login.sh
+          run: ./input_user_login.sh
+
+        - name: Run script pwd_user_validate.sh
+          run: ./pwd_user_validate.sh
