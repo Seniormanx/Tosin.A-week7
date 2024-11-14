@@ -1,0 +1,28 @@
+name: Code_linter Bash Scripts  # Workflow name
+
+on:
+  push:
+    branches: main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Super Linter
+        uses: super-linter/super-linter@v7
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_BASH: true
+
+      - name: Print Github Token and Username
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          USERNAME: ${{ secrets.USERNAME }}
+        run: |
+          echo "Github Token: $GITHUB_TOKEN"
+          echo "Username: $USERNAME"
