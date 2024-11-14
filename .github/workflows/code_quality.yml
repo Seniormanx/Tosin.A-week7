@@ -8,6 +8,8 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
+    env:
+      GIT_DISCOVERY_ACROSS_FILESYSTEM=1
     steps:
       - name: Run Super Linter
         uses: super-linter/super-linter@v7
