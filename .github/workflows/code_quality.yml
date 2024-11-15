@@ -41,9 +41,7 @@ jobs:
           tree
 
       - name: Make the script executable
-        working-directory: Tosin.A-week7
         run: chmod +x num_count.sh 
 
       - name: Run a Bash Script
-        working-directory: Tosin.A-week7
         run:  ./num_count.sh
