@@ -36,13 +36,14 @@ jobs:
     needs: test
     steps:
       - name: List all files in the directory
+        working-directory: Seniormanx/Tosin.A-week7
         run: |
-          sudo apt install tree
           echo "Listing all files in the directory"
-          tree -a
+          ls
 
       - name: Run a Bash Script
+        working-directory: Seniormanx/Tosin.A-week7
         run: |
           echo "Running the bash script..."
-          chmod +x Tosin.A-week7/num_count.sh  
-          ./Tosin.A-week7/num_count.sh 
+          chmod +x num_count.sh  
+          ./num_count.sh 
