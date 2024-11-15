@@ -40,22 +40,8 @@ jobs:
           echo "Listing all files in the directory"
           tree -a
 
-      - name: Enter the week3 folder
-        working-directory: TDI_week7/TDI_week3
-        run: echo "Entered TDI_week7/TDI_week3 directory"
+      - name: Make the script executable
+        run: chmod +x num_count.sh
 
-      - name: Make all scripts executable
-        working-directory: TDI_week7/TDI_week3
-        run: chmod +x arguments.sh input_user_login.sh pwd_user_validate.sh file_creation.sh math_operation.sh
-
-      - name: Run script arguments.sh
-        working-directory: TDI_week7/TDI_week3
-        run: ./arguments.sh
-
-      - name: Run script input_user_login.sh
-        working-directory: TDI_week7/TDI_week3
-        run: ./input_user_login.sh
-
-      - name: Run script pwd_user_validate.sh
-        working-directory: TDI_week7/TDI_week3
-        run: ./pwd_user_validate.sh
+      - name: Run script num_count.sh
+        run: ./num_count.sh    
