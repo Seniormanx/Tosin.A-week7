@@ -42,8 +42,4 @@ jobs:
           ls
 
       - name: Run a Bash Script
-        working-directory: Seniormanx/Tosin.A-week7
-        run: |
-          echo "Running the bash script..."
-          chmod +x num_count.sh  
-          ./num_count.sh 
+        run: bash num_count.sh
