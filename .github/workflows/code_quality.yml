@@ -38,12 +38,12 @@ jobs:
       - name: List all files in the directory
         run: |
           echo "Listing all files in the directory"
-          ls
+          tree
 
       - name: Make the script executable
-        working-directory: TDI_week7
+        working-directory: Tosin.A-week7
         run: chmod +x num_count.sh 
 
       - name: Run a Bash Script
-        working-directory: TDI_week7
+        working-directory: Tosin.A-week7
         run:  ./num_count.sh
