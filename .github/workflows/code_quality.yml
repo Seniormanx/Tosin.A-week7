@@ -36,7 +36,6 @@ jobs:
     needs: test
     steps:
       - name: List all files in the directory
-        working-directory: Seniormanx/Tosin.A-week7
         run: |
           echo "Listing all files in the directory"
           ls
