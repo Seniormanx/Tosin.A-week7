@@ -40,5 +40,10 @@ jobs:
           echo "Listing all files in the directory"
           ls
 
+      - name: Make the script executable
+        working-directory: TDI_week7
+        run: chmod +x num_count.sh 
+
       - name: Run a Bash Script
-        run: bash num_count.sh
+        working-directory: TDI_week7
+        run:  ./num_count.sh
