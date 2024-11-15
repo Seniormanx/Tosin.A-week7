@@ -41,7 +41,7 @@ jobs:
           tree -a
 
       - name: Make the script executable
-        run: chmod +x num_count.sh
+        run: chmod +x ./num_count.sh
 
       - name: Run script num_count.sh
         run: ./num_count.sh    
