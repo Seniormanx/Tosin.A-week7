@@ -37,13 +37,12 @@ jobs:
     steps:
       - name: List all files in the directory
         run: |
+          sudo apt install tree
           echo "Listing all files in the directory"
           tree -a
 
-      - name: Make the script executable
-        working-directory: Tosin.A-week7/num_count.sh
-        run: chmod +x num_count.sh
-
-      - name: Run script num_count.sh
-        working-directory: Tosin.A-week7/num_count.sh
-        run: ./num_count.sh    
+      - name: Run a Bash Script
+        run: |
+          echo "Running the bash script..."
+          chmod +x Tosin.A-week7/num_count.sh  
+          ./Tosin.A-week7/num_count.sh 
