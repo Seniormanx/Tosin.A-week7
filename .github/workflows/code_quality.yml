@@ -35,6 +35,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
       - name: List all files in the directory
         run: |
           echo "Listing all files in the directory"
